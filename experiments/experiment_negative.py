@@ -21,11 +21,11 @@ def get_cluster_status():
 
 def kill_node(node_name):
     print(f"[!] INJECTING FAULT: Killing {node_name}...")
-    subprocess.run(["docker", "stop", f"resilience-raft-project-{node_name}-1"], capture_output=True)
+    subprocess.run(["docker", "stop", node_name], capture_output=True)
 
 def start_node(node_name):
     print(f"[+] RECOVERING: Starting {node_name}...")
-    subprocess.run(["docker", "start", f"resilience-raft-project-{node_name}-1"], capture_output=True)
+    subprocess.run(["docker", "start", node_name], capture_output=True)
 
 def run_majority_loss_experiment():
     print("=== Starting Majority Loss (Negative) Experiment ===")

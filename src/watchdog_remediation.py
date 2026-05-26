@@ -3,9 +3,9 @@ import subprocess
 
 # Numele containerelor noastre
 CONTAINERS = [
-    "resilience-raft-project-node1-1",
-    "resilience-raft-project-node2-1",
-    "resilience-raft-project-node3-1"
+    "node1",
+    "node2",
+    "node3"
 ]
 
 def check_and_remediate():

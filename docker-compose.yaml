@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   node1:
+    container_name: node1      
     build: .
     environment:
       - NODE_ID=node1
@@ -12,6 +13,7 @@ services:
       - raft_network
 
   node2:
+    container_name: node2       
     build: .
     environment:
       - NODE_ID=node2
@@ -22,6 +24,7 @@ services:
       - raft_network
 
   node3:
+    container_name: node3      
     build: .
     environment:
       - NODE_ID=node3
@@ -33,4 +36,5 @@ services:
 
 networks:
   raft_network:
+    name: raft_network         
     driver: bridge

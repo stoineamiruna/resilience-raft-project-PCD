@@ -28,13 +28,13 @@ def find_leader(status_report):
 
 def kill_node(node_name):
     print(f"\n[!] INJECTING FAULT: Killing {node_name} container...")
-    container_name = f"resilience-raft-project-{node_name}-1"
+    container_name = node_name
     subprocess.run(["docker", "stop", container_name], capture_output=True)
     print(f"[!] {node_name} is down.")
 
 def start_node(node_name):
     print(f"\n[+] RECOVERING: Starting {node_name} container...")
-    container_name = f"resilience-raft-project-{node_name}-1"
+    container_name = node_name
     subprocess.run(["docker", "start", container_name], capture_output=True)
     print(f"[+] {node_name} is back up.")
 

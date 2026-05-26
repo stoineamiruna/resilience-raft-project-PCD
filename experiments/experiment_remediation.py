@@ -21,7 +21,7 @@ def get_cluster_status():
 
 def kill_node(node_name):
     print(f"\n[!] INJECTING FAULT: Killing {node_name} container...")
-    subprocess.run(["docker", "stop", f"resilience-raft-project-{node_name}-1"], capture_output=True)
+    subprocess.run(["docker", "stop", node_name], capture_output=True)
 
 def run_remediation_test():
     print("=== Starting Automated Remediation Test ===")

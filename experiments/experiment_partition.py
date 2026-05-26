@@ -9,7 +9,7 @@ NODES = {
 }
 
 # Numele retelei create de docker-compose
-NETWORK_NAME = "resilience-raft-project_raft_network"
+NETWORK_NAME = "raft_network"
 
 def get_cluster_status():
     status_report = {}
@@ -30,12 +30,12 @@ def find_leader(status_report):
     return None
 
 def isolate_node(node_name):
-    container_name = f"resilience-raft-project-{node_name}-1"
+    container_name = node_name
     print(f"\n[!] CHAOS: Disconnecting {container_name} from network '{NETWORK_NAME}'...")
     subprocess.run(["docker", "network", "disconnect", NETWORK_NAME, container_name], capture_output=True)
 
 def heal_network(node_name):
-    container_name = f"resilience-raft-project-{node_name}-1"
+    container_name = node_name
     print(f"\n[+] HEALING: Reconnecting {container_name} to network '{NETWORK_NAME}'...")
     subprocess.run(["docker", "network", "connect", NETWORK_NAME, container_name], capture_output=True)
     # Add a small delay to allow heartbeats to propagate and states to settle
