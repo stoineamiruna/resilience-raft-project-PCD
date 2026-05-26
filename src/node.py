@@ -177,7 +177,7 @@ def put_data():
     value = request.json.get('value')
     
     # --- CONSENSUS/REPLICATION CHECK ---
-    # Implementam replicarea sincrona cu Quorum obligatoriu (nota 10)
+    # Implementam replicarea sincrona cu Quorum obligatoriu
     replication_successes = [1] # Liderul a acceptat-o local deja
     lock = threading.Lock()
     threads = []
